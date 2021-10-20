@@ -1,7 +1,7 @@
 <!doctype html>
-<html lang="ko" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout">
+<html lang="ko" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="@{/layout}">
 
-<section layout:fragment="content">
+<!--<section layout:fragment="content">-->
     <!--
     <div class="user_info" th:each="USER: ${USERINFO}" th:data-id="${USER.userid}">
 
@@ -24,14 +24,15 @@
             <button>고객정보 삭제</button>
         </div>
         -->
-    <section class="buyer_detail">
+    <section layout:fragment="content" class="buyer_detail">
+
         <div>
-            <label>ID</label><span th:text="${USER.userid}"/>
-            <label>이름</label><span th:text="${USER.name}"/>
+            <label>ID</label><span th:text="${BUYER.userid}"/>
+            <label>이름</label><span th:text="${BUYER.name}"/>
         </div>
         <div>
-            <label>전화번호</label><span th:text="${USER.tel}"/>
-            <label>주소</label><span th:text="${USER.address}"/>
+            <label>전화번호</label><span th:text="${BUYER.tel}"/>
+            <label>주소</label><span th:text="${BUYER.address}"/>
         </div>
         <div>
             <button>고객정보 수정</button>
@@ -39,7 +40,7 @@
         </div>
     </section>
 
-    </div>
+
 
     <div class="user_table">
         <table>
@@ -50,13 +51,13 @@
                 <th>수량</th>
                 <th>금액</th>
             </tr>
-            <tr th:each="PRO: ${PRODUCT}" th:data-id="${PRO.p_id}">
-                <td th:text="${PRO.p_no}"/>
-                <td th:text="${PRO.p_name}"/>
-                <td th:text="${PRO.p_price}"/>
-                <td th:text="${PRO.p_qty}"/>
-                <td th:text="${PRO.total_price}"/>
-            </tr>
+            <!--            <tr th:each="PRO: ${PRODUCT}" th:data-id="${PRO.p_id}">-->
+            <!--                <td th:text="${PRO.p_no}"/>-->
+            <!--                <td th:text="${PRO.p_name}"/>-->
+            <!--                <td th:text="${PRO.p_price}"/>-->
+            <!--                <td th:text="${PRO.p_qty}"/>-->
+            <!--                <td th:text="${PRO.total_price}"/>-->
+            <!--            </tr>-->
             <tr class="total_tr">
                 <th>합계</th>
                 <th></th>
@@ -67,4 +68,4 @@
         </table>
         <button>주문 추가</button>
     </div>
-</section>
+<!--</section>-->

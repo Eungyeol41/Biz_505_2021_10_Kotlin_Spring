@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="@{/layout}">
+
+<form method="post" layout:fragment="content" class="write_form">
+
+    <div><label>고객 ID</label><input name="userid"></div>
+    <div><label>이름</label><input name="name"></div>
+    <div><label>전화번호</label><input name="tel"></div>
+    <div><label>주소</label><input name="address"></div>
+    <div><label>담당자명</label><input name="manager"></div>
+    <div><label>담당자연락처</label><input name="man_tel"></div>
+    <div class="write_btn">
+        <button class="btn_write" type="button">작성하기</button>
+        <button type="button">List</button>
+    </div>
+</form>
