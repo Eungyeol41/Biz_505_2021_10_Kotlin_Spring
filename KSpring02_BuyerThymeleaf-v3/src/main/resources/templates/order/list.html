@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="@{/layout}">
+
+<section layout:fragment="content">
+    <table>
+        <tr>
+            <th>SEQ</th>
+            <th>고객 ID</th>
+            <th>거래일시</th>
+            <th>상품명</th>
+            <th>단가</th>
+            <th>수량</th>
+            <th>합계</th>
+        </tr>
+        <tr th:each="PRO: ${PRODUCT}" th:data-id="${PRO.seq}">
+            <td th:text="${PROStat.count}"></td>
+            <td th:text="${PRO.p_id}"></td>
+            <td th:text="${PRO.date}"></td>
+            <td th:text="${PRO.pname}"></td>
+            <td th:text="${PRO.amt}"></td>
+            <td th:text="${PRO.qty}"></td>
+            <td th:text="${PRO.total}"></td>
+        </tr>
+    </table>
+</section>
+
+</html>

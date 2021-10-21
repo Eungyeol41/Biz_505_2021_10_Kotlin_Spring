@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.ui.set
 import org.springframework.web.bind.annotation.*
+import org.springframework.web.servlet.mvc.support.RedirectAttributes
 
 @Controller
 @RequestMapping(value = ["/buyer"])
@@ -32,9 +33,6 @@ class BuyerController(val bService: BuyerService) {
         var userInfo = bService.findById(userid)
         model["BUYER"] = userInfo
 //        println(userInfo.toString())
-
-//        var proInfo = pService.selectAll()
-//        model["PRODUCT"] = proInfo
 
         return "buyer/detail"
     }
@@ -93,13 +91,34 @@ class BuyerController(val bService: BuyerService) {
      * 여기에서는 userid가 필요없지만 pathVariable로 설정해주어야 한다
      */
     @RequestMapping(value = ["/update/{userid}"], method = [RequestMethod.POST])
-    fun update(model: Model, buyer: Buyer, @PathVariable("userid") userid: String): String {
+    fun update(redirectAttributes: RedirectAttributes, buyer: Buyer, @PathVariable("userid") userid: String): String {
         bService.update(buyer)
 
         // model + return 주소 =>
         // localhost:8080/buyer/detail?userid=ㅇㅇㅇ 형식으로
         // redirect 주소가 만들어진다
-        model["userid"] = buyer.userid.toString()
+        // model["userid"] = buyer.userid.toString()
+
+        /**
+         * Spring MVC에서는 model에 변수를 담으면 redirect를 실행할 때 model에 담긴 변수를
+         *  queryString으로 부착하여 전송을 한다
+         * 
+         * 이 기능이 boot에서는 금지되기에
+         *  같은 기능을 구현하기 위하여 model 대신 RedirectAttributes를 사용
+         */
+        // 단 return이 redirect일 경우만 해당
+        redirectAttributes["userid"] = buyer.userid.toString()
         return "redirect:/buyer/detail"
+
+        // redirectAttributes를 사용하지 않으면 다음과 같이 작성해야 한다.
+        // return "redirect:/buyer/detail?userid=" + buyer.userid.toString()
     }
+
+    @RequestMapping(value = ["/delete/{userid}"], method = [RequestMethod.GET])
+    fun delete(buyer: Buyer, @PathVariable("userid") userid: String):String {
+        bService.delete(userid)
+
+        return "redirect:/buyer/list"
+    }
+
 }

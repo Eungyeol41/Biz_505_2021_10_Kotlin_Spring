@@ -21,6 +21,7 @@ $(function(){
         // alert(JSON.stringify(tagInfo))
 
         // 방법 1
+        /*
         $("li.login").on("click", function(){
             location.href = "/login"
         })
@@ -34,6 +35,7 @@ $(function(){
             alert("Home")
             location.href = "/"
         })
+        */
 
         // 방법 2
         /*
@@ -49,13 +51,12 @@ $(function(){
         */
 
         // 방법 3
-        /*
         let href = "/"
         
         if(text === "Home") {
             href
         } else if(text === "주문 관리") {
-            href += "order"
+            href += "order/"
         } else if(text === "결제 관리") {
            href += "pay"
         } else if(text === "로그인") {
@@ -63,6 +64,5 @@ $(function(){
         }
         
         location.href = `${href}`
-        */
     })
 })

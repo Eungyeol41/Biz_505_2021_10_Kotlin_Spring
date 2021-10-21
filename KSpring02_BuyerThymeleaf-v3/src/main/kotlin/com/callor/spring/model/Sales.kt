@@ -24,6 +24,7 @@ data class Sales(
     @Column(columnDefinition = "BIGINT")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var seq: Long,
+    var p_id: String,
     var date: String,
     var time: String,
     var pname: String,
@@ -32,12 +33,12 @@ data class Sales(
     var total: Int,
 
     // 데이터에 특별하게 Date(날짜, 시간형) 값을 사용하고 싶을 때
-    @Temporal(TemporalType.DATE)
-    var date1: Date,
-
-    @Temporal(TemporalType.TIME)
-    var time1: Date,
-
-    @Temporal(TemporalType.TIMESTAMP)
-    var date_time: Date,
+//    @Temporal(TemporalType.DATE)
+//    var date1: Date,
+//
+//    @Temporal(TemporalType.TIME)
+//    var time1: Date,
+//
+//    @Temporal(TemporalType.TIMESTAMP)
+//    var date_time: Date,
 )

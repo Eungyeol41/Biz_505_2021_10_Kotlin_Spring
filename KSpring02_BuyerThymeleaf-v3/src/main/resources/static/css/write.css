@@ -5,10 +5,11 @@ form.write_form {
 
 form.write_form fieldset {
     border: 1px solid #282c34;
+    border-radius: 10px;
 }
 
 form.write_form legend {
-
+    margin: 10px;
 }
 
 form.write_form div {

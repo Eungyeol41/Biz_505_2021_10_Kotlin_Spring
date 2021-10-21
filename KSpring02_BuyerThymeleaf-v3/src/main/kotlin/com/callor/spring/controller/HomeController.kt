@@ -29,9 +29,6 @@ class HomeController {
     @Autowired
     private lateinit var bService: BuyerService
 
-//    @Autowired
-//    private lateinit var pService: ProductService
-
     /**
      * Spring 일반 Controller 예시
      * method가 문자열을 return하면 view 파일을 열어서 rendering하여 client로 보내라

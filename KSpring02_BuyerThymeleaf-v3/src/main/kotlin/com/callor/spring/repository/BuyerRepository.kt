@@ -12,7 +12,7 @@ interface BuyerRepository : JpaRepository<Buyer, String> {
      * data(Entity) 클래스에 정의된 멤버 변수 이름만 설정이 가능함
      */
     fun findByName(name: String): Array<Buyer>
-    fun findByTel(tel: String): Buyer
+    fun findByTel(tel: String): Array<Buyer>
 
 //    fun findByUserName(userName:String): Array<Buyer>
 

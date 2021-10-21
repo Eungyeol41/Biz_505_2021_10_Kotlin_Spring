@@ -14,8 +14,10 @@ $(function(){
                 href = `${href}/update/${userid}`
             } else if(className.includes("btn_delete")) {
                 // alert("삭제" + userid)
-
                 href = `${href}/delete/${userid}`
+                if(!confirm("삭제할까요?")) {
+                    return false
+                }
             }
             location.href = `${href}`
 
