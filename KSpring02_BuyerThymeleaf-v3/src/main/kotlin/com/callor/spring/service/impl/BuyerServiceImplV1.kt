@@ -24,7 +24,8 @@ class BuyerServiceImplV1(val bRepo: BuyerRepository) : BuyerService {
     // private: 여기 class 내부에서만 사용하는 static 변수 선언하기
 
     override fun selectAll(): Array<Buyer> {
-        return ConfigData.BUYER_LIST
+        // return ConfigData.BUYER_LIST
+        return bRepo.findAll().toTypedArray()
     }
 
     override fun findById(userid: String): Buyer {
@@ -52,7 +53,9 @@ class BuyerServiceImplV1(val bRepo: BuyerRepository) : BuyerService {
     }
 
     override fun update(buyer: Buyer): Buyer {
-        TODO("Not yet implemented")
+
+        return bDao.save(buyer)
+
     }
 
 }

@@ -3,6 +3,14 @@ form.write_form {
     margin: 1rem auto;
 }
 
+form.write_form fieldset {
+    border: 1px solid #282c34;
+}
+
+form.write_form legend {
+
+}
+
 form.write_form div {
     width: 80%;
     margin: 0 auto;
@@ -28,15 +36,5 @@ form.write_form input {
 form.write_form div.write_btn {
     display: flex;
     justify-content: center;
+    margin: 1rem auto;
 }
-
-form.write_form button {
-    display: block;
-    width: 20%;
-}
-
-/*
-section.buyer_write button:last-of-type {
-    margin-right: calc(10% - 16px)
-}
-*/
