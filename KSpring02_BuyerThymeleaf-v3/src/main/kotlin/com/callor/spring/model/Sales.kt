@@ -2,6 +2,7 @@ package com.callor.spring.model
 
 import java.util.*
 import javax.persistence.*
+import kotlin.jvm.Transient
 
 /**
  * ID 칼럼을 자동 증가 옵션으로 자동 생성하기
@@ -23,22 +24,25 @@ data class Sales(
     @Id
     @Column(columnDefinition = "BIGINT")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var seq: Long,
-    var p_id: String,
-    var date: String,
-    var time: String,
-    var pname: String,
-    var qty: Int,
-    var amt: Int,
-    var total: Int,
+    var seq: Long? = null,
+    var userid:String? = null,
+    var date: String? = null,
+    var time: String? = null,
+    var pname: String? = null,
+    var qty: Int? = null,
+    var amt: Int? = null,
+    var total: Int? = null,
 
-    // 데이터에 특별하게 Date(날짜, 시간형) 값을 사용하고 싶을 때
-//    @Temporal(TemporalType.DATE)
-//    var date1: Date,
-//
-//    @Temporal(TemporalType.TIME)
-//    var time1: Date,
-//
-//    @Temporal(TemporalType.TIMESTAMP)
-//    var date_time: Date,
+    // 데이터에 특별하게 Date(날짜? = null, 시간형) 값을 사용하고 싶을 때
+    @Transient // table 생성 시 칼럼에 추가하지 말라!
+    @Temporal(TemporalType.DATE)
+    var date1: Date? = null,
+
+    @Transient
+    @Temporal(TemporalType.TIME)
+    var time1: Date? = null,
+
+    @Transient
+    @Temporal(TemporalType.TIMESTAMP)
+    var date_time: Date? = null,
 )

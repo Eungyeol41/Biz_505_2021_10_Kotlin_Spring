@@ -2,10 +2,10 @@
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorator="@{/layout}">
+      layout:decorator="~{/layout}">
 
 <section layout:fragment="content">
-    <table>
+    <table class="order_list">
         <tr>
             <th>SEQ</th>
             <th>고객 ID</th>
@@ -15,16 +15,26 @@
             <th>수량</th>
             <th>합계</th>
         </tr>
-        <tr th:each="PRO: ${PRODUCT}" th:data-id="${PRO.seq}">
-            <td th:text="${PROStat.count}"></td>
-            <td th:text="${PRO.p_id}"></td>
-            <td th:text="${PRO.date}"></td>
-            <td th:text="${PRO.pname}"></td>
-            <td th:text="${PRO.amt}"></td>
-            <td th:text="${PRO.qty}"></td>
-            <td th:text="${PRO.total}"></td>
+        <tr th:each="SALE: ${SALES}" th:data-seq="${SALE.seq}">
+            <td th:text="${SALEStat.count}"></td>
+            <td th:text="${SALE.userid}"></td>
+            <td th:text="${SALE.date}"></td>
+            <td th:text="${SALE.pname}"></td>
+            <td th:text="${SALE.amt}"></td>
+            <td th:text="${SALE.qty}"></td>
+            <td th:text="${SALE.total}"></td>
         </tr>
     </table>
+    <div class="btn_box">
+        <button class="btn_insert">주문 등록</button>
+    </div>
+    <script>
+        $(function() {
+            $("button.btn_insert").on("click", function(){
+                location.href= "/order/insert";
+            })
+        })
+    </script>
 </section>
 
 </html>
