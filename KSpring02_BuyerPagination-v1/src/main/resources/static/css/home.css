@@ -22,19 +22,19 @@ nav {
     margin: 0 auto;
 }
 
-ul {
+nav ul {
     list-style: none;
     display: flex;
     background: #282c34;
     color: white;
 }
 
-li {
+nav li {
     padding: 1rem;
     cursor: pointer;
 }
 
-li:last-child {
+nav li:last-child {
     margin-left: auto;
 }
 

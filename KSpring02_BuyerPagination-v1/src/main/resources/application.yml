@@ -1,4 +1,6 @@
 # Context Path
+# localhost:8080/buyer/list
+# localhost:8080/erp/buyer/list
 server.servlet.context-path: /erp
 
 # yaml property를 사용하여 properties 설정하기
@@ -19,4 +21,3 @@ spring:
 
 # Logger Setting
   output.ansi.enabled: ALWAYS
-

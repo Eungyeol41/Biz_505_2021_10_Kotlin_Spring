@@ -4,7 +4,7 @@ $(function () {
         const id = $(this).data("id")
 
         // location.href = "/buyer/detail?userid=" + id
-        location.href = `${rootPath}/buyer/detail?userid=${id}`
+        location.href = `${rootPath}buyer/detail?userid=${id}`
 
     }
 

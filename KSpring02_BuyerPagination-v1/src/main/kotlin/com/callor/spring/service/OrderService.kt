@@ -1,6 +1,8 @@
 package com.callor.spring.service
 
 import com.callor.spring.model.Sales
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service
 
 @Service
@@ -16,7 +18,10 @@ interface OrderService {
 
     fun findByDateDestance(sDate: String, eDate: String): Array<Sales>
 
+    fun insert(): Sales
     fun insert(sales: Sales): Sales
     fun delete(seq: Long)
     fun update(sales: Sales): Sales
+    fun selectAll(pageable: Pageable): Page<Sales>
+
 }

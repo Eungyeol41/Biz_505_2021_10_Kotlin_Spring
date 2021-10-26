@@ -4,8 +4,10 @@ import com.callor.spring.ConfigData
 import com.callor.spring.config.SalesDataInit
 import com.callor.spring.model.Sales
 import com.callor.spring.service.OrderService
+import com.callor.spring.service.impl.OrderServiceImplV1
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.ui.set
@@ -23,10 +25,11 @@ class OrderController {
     val logger = LoggerFactory.getLogger(SalesDataInit::class.java)
 
     @Autowired
-    private lateinit var oService: OrderService
+    private lateinit var oService: OrderServiceImplV1
 
     // localhost:8080/order/ 또는
     // localhost:8080/order 요청을 모두 수용
+    /*
     @RequestMapping(value = ["/"], method = [RequestMethod.GET])
     fun list(model: Model): String {
 
@@ -35,7 +38,27 @@ class OrderController {
 
         return "order/list"
     }
+    */
 
+    @RequestMapping(value = ["/list"], method = [RequestMethod.GET])
+    fun list(model: Model, pageable: Pageable): String {
+
+        val orderList = oService.selectAll(pageable)
+        model["SALES"] = orderList
+
+        return "order/list"
+    }
+
+    @RequestMapping(value = ["/sub_page"], method = [RequestMethod.GET])
+    fun subPage(model: Model, pageable: Pageable): String {
+
+        val orderList = oService.selectAll(pageable)
+        model["SALES"] = orderList
+
+        return "order/sub_page"
+    }
+
+    /*
     @RequestMapping(value = ["/insert"], method = [RequestMethod.GET])
     fun insert(model:Model): String {
         val json = ConfigData.SALES_LIST[0]
@@ -43,6 +66,16 @@ class OrderController {
 
         return "order/write"
     }
+    */
+
+    @RequestMapping(value = ["/insert"], method = [RequestMethod.GET])
+    fun insert(sales: Sales, model: Model): String {
+        val sales = oService.insert()
+        model["SALES"] = sales
+
+        return "order/write"
+    }
+
 
     @RequestMapping(value = ["/insert"], method = [RequestMethod.POST])
     fun insert(sales: Sales): String {
@@ -51,8 +84,9 @@ class OrderController {
         return "redirect:/order/"
     }
 
+
     @RequestMapping(value = ["/detail"], method = [RequestMethod.GET])
-    fun detail(model: Model, @RequestParam("seq") seq:Long): String {
+    fun detail(model: Model, @RequestParam("seq") seq: Long): String {
         var salesList = oService.findById(seq)
         model["SALES"] = salesList
 
@@ -60,7 +94,7 @@ class OrderController {
     }
 
     @RequestMapping(value = ["/update/{seq}"], method = [RequestMethod.GET])
-    fun update(model:Model, @PathVariable("seq") seq: Long):String {
+    fun update(model: Model, @PathVariable("seq") seq: Long): String {
         val sales = oService.findById(seq)
         model["SALES"] = sales
 
@@ -68,7 +102,7 @@ class OrderController {
     }
 
     @RequestMapping(value = ["/update/{seq}"], method = [RequestMethod.POST])
-    fun update(redirectAttributes: RedirectAttributes, sales:Sales, @PathVariable("seq") seq: Long):String {
+    fun update(redirectAttributes: RedirectAttributes, sales: Sales, @PathVariable("seq") seq: Long): String {
         oService.update(sales)
 
         redirectAttributes["seq"] = sales.seq.toString()
@@ -77,7 +111,7 @@ class OrderController {
     }
 
     @RequestMapping(value = ["/delete/{seq}"], method = [RequestMethod.GET])
-    fun delete(@PathVariable("seq") seq: Long):String {
+    fun delete(@PathVariable("seq") seq: Long): String {
         oService.delete(seq)
 
         return "redirect:/order/"

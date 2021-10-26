@@ -44,7 +44,8 @@ class SalesDataInit(val sDao: SalesRepository) {
     }
 
     private fun salesDataInit() {
-        val userid = String.format("B%03d", ConfigData.RND.nextInt(20) + 1)
+        val userid = String.format("B%03d", ConfigData.RND.nextInt(100) + 1)
+        logger().debug("USERID {}",userid)
         val pname = pnames[ConfigData.RND.nextInt(pnames.size)]
         val qty = (ConfigData.RND.nextInt(10) + 10) * 10 // 100 ~ 190
         val price = (ConfigData.RND.nextInt(100) + 100) * 1000 // 100000 ~ 199000

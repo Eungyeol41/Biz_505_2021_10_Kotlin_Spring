@@ -17,6 +17,7 @@ $(function(){
             } else if(className.includes("btn_list")) {
                 href = `${href}/`
             }
+
              location.href = `${href}`
 
         })

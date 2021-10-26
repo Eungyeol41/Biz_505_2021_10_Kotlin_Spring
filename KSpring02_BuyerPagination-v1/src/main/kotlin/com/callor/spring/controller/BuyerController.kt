@@ -52,6 +52,9 @@ class BuyerController(val bService: BuyerService) {
         val buyerList = bService.selectAll(pageable)
         model["BUYERS"] = buyerList
 
+        val pageNum = pageable.pageNumber
+        model["PAGES"] = pageNum
+
         return "buyer/list"
     }
 

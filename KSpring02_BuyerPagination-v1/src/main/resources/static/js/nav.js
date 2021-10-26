@@ -54,7 +54,7 @@ $(function(){
         let href = `${rootPath}`
         
         if(text === "주문 관리") {
-            href += "order/"
+            href += "order/list"
         } else if(text === "결제 관리") {
            href += "pay"
         } else if(text === "로그인") {
