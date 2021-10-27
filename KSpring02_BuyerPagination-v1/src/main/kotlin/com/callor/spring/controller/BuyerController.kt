@@ -156,7 +156,8 @@ class BuyerController(val bService: BuyerService) {
 
     @RequestMapping(value = ["/insert"], method = [RequestMethod.POST])
     fun insert(model: Model, buyer: Buyer): String {
-        bService.insert(buyer)
+        logger().debug("buyer에는 무엇이 들어있는가!!: {}", buyer)
+//        bService.insert(buyer)
 
         return "redirect:/buyer/list"
     }
