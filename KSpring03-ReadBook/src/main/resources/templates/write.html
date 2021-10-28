@@ -17,16 +17,16 @@
     </header>
     <form method="POST" class="insert_form">
         <div>
-            <input name="seq" placeholder="SEQ">
-        </div>
-        <div>
             <input name="isbn" placeholder="ISBN">
             <input name="title" placeholder="제목">
         </div>
-        <div class="input_date">
-            <input name="rdate" placeholder="날짜">
-            <input name="stime" placeholder="시간">
-            <input name="etime" placeholder="시간">
+        <div>
+            <input name="rdate" placeholder="읽기 시작한 날짜" type="date">
+            <input name="stime" placeholder="읽기 시작한 시간" type="time">
+        </div>
+        <div>
+            <input name="edate" placeholder="읽기 완료한 날짜" type="date">
+            <input name="etime" placeholder="읽기 완료한 시간" type="time">
         </div>
         <div>
             <input name="rating" placeholder="간단 소개">

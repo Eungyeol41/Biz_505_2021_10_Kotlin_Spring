@@ -17,6 +17,9 @@ data class ReadBook(
     var rdate: String? = null,
 
     @Column(columnDefinition = "VARCHAR(10)", nullable = false)
+    var edate: String? = null,
+
+    @Column(columnDefinition = "VARCHAR(10)", nullable = false)
     var stime: String? = null,
 
     @Column(columnDefinition = "VARCHAR(10)", nullable = false)
@@ -27,4 +30,4 @@ data class ReadBook(
 
     @Column(nullable = false)
     var comment: String? = null,
-)
+)   
