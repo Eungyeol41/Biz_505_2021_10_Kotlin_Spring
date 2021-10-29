@@ -69,3 +69,8 @@ div.btn_box.left {
     text-align: left;
     justify-content: left;
 }
+
+form.login_form button.btn_login {
+    background-color: cadetblue;
+    color: white;
+}
