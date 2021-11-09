@@ -21,11 +21,9 @@ class SecurityConfig:WebSecurityConfigurerAdapter() {
                 "/static/css/**",
                 "/static/js/**",
                 "/static/images/**",
-                // "*.icon", (icon이 아닌가...?)
                 "*.ico",
                 "*.txt"
         )
-
         web.ignoring().requestMatchers(
                 PathRequest.toStaticResources().atCommonLocations()
         )
@@ -33,8 +31,8 @@ class SecurityConfig:WebSecurityConfigurerAdapter() {
 
     override fun configure(http: HttpSecurity) {
         http.authorizeRequests()
-                .antMatchers("/member/mypage").authenticated()
-                .antMatchers("/**").permitAll()
+            .antMatchers("/member/mypage").authenticated()
+            .antMatchers("/**").permitAll()
 
         http.formLogin()
                 .loginPage("/member/login").permitAll()

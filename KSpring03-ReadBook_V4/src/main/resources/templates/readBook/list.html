@@ -1,0 +1,25 @@
+<html lang="ko" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{/layout}">
+
+<section layout:fragment="content" class="content">
+    <table>
+        <thead>
+            <tr>
+                <th>ISBN</th>
+                <th>책 제목</th>
+                <th>읽기 시작한 날짜</th>
+                <th>읽기 완료한 날짜</th>
+                <th>간단평</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="LIST: ${LIST}">
+                <td th:text="${LIST.isbn}" />
+                <td th:text="${LIST.title}" />
+                <td th:text="${LIST.sdate}" />
+                <td th:text="${LIST.edate}" />
+                <td th:text="${LIST.subject}" />
+            </tr>
+        </tbody>
+    </table>
+</section>
+</html>

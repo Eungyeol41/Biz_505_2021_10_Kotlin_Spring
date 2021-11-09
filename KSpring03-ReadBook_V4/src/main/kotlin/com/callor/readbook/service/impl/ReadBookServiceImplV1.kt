@@ -1,5 +1,6 @@
 package com.callor.readbook.service.impl
 
+import com.callor.readbook.config.logger
 import com.callor.readbook.model.BookDTO
 import com.callor.readbook.model.ReadBookDTO
 import com.callor.readbook.model.ReadBookVO
@@ -10,6 +11,11 @@ import org.springframework.stereotype.Service
 
 @Service("rServiceV1")
 class ReadBookServiceImplV1(val rDao:ReadBookRepository, val bDao:BookRepository):ReadBookService {
+
+    override fun selectAll() {
+        rDao.findAll()
+        logger().debug("ALL! rDao: {}", rDao.findAll())
+    }
 
     override fun readBookInsert(readBook: ReadBookVO) {
 
