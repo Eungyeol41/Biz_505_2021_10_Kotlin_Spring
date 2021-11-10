@@ -18,74 +18,20 @@ header h1 {
     text-shadow: 1px 1px 1px darkcyan;
 }
 
-form {
-    width: 80%;
-    margin: 0 auto;
+nav ul {
+    display: flex;
+    list-style: none;
+    background-color: lightblue;
+    color: white;
+    border-top: 1px solid white;
 }
 
-form fieldset {
-    border-radius: 5px;
-}
-
-form legend {
-    margin: 0 1rem;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-form input {
+nav li {
     padding: 0.5rem;
 }
 
-form div {
-    margin: 0.5rem;
-}
-
-div.input {
-    width: 80%;
-    display: flex;
-    padding: 5px;
-    margin: 5px auto;
-}
-
-div.input input, div.input label {
-    display: inline-block;
-    margin: 0 5px;
-    padding: 8px;
-}
-
-div.input input {
-    flex: 1;
-    border: 1px solid #ddd;
-    outline: 0;
-    border-radius: 5px;
-}
-
-div.input label {
-    text-align: right;
-    color: cadetblue;
-    font-weight: bold;
-}
-
-div.btn_box {
-    text-align: right;
-    justify-content: right;
-    width: 89%;
-}
-
-button {
-    display: inline-block;
-    margin: 5px;
-    padding: 0.5rem 1rem;
-    border: none;
-    outline: none;
-    border-radius: 5px;
-    color: white;
-    background-color: lightblue;
-}
-
-button:hover {
-    cursor: pointer;
+nav li:hover {
+    background-color: cadetblue;
 }
 
 footer {
