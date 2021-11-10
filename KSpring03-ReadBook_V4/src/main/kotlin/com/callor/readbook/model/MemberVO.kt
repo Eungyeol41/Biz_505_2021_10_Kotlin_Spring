@@ -4,13 +4,16 @@ import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
 
 data class MemberVO(
-        private var username:String,
-        private var password:String,
-        private var enabled:Boolean = true,
-        private var credentialsNonExpired:Boolean = true,
-        private var accountNonExpired: Boolean = true,
-        private var accountNonLocked:Boolean = true,
-        private var authorities:Collection<GrantedAuthority> = setOf()
+    private var username: String,
+    private var password: String,
+    private var enabled: Boolean = true,
+    private var credentialsNonExpired: Boolean = true,
+    private var accountNonExpired: Boolean = true,
+    private var accountNonLocked: Boolean = true,
+    private var authorities: Collection<GrantedAuthority> = setOf(),
+    var email: String,
+    var tel:String,
+    var address:String,
 ):UserDetails {
 
     override fun getUsername(): String = username

@@ -37,6 +37,7 @@ class SecurityConfig:WebSecurityConfigurerAdapter() {
         http.formLogin()
                 .loginPage("/member/login").permitAll()
                 .loginProcessingUrl("/login")
+                // .successForwardUrl("/mypage")
 
         http.logout()
                 .logoutRequestMatcher(AntPathRequestMatcher("/logout"))

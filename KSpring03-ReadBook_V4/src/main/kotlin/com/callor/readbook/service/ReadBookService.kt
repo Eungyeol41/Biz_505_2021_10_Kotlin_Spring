@@ -5,7 +5,7 @@ import com.callor.readbook.model.ReadBookVO
 
 interface ReadBookService {
 
-    fun selectAll()
+    fun selectAll():Array<ReadBookDTO>
     fun readBookInsert(readBook: ReadBookVO)
 
 }

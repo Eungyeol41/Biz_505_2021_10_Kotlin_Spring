@@ -1,0 +1,22 @@
+h2 {
+    text-align: center;
+}
+
+div.user-detail {
+    border: 1px solid lightblue;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: 1rem auto;
+    align-items: center;
+}
+
+div.user-detail input {
+    border: none;
+    border-bottom: 1px solid lightblue;
+}
+
+button.logout {
+    margin-left: auto;
+    display: block;
+}

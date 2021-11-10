@@ -7,3 +7,7 @@ button.btn_login {
 div.input label {
     width: 15%;
 }
+
+div.error {
+    color: red;
+}

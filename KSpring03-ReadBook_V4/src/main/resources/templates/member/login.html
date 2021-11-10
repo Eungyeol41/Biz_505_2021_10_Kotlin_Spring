@@ -4,6 +4,7 @@
     <form method="POST" th:action="@{/login}" class="login_form">
         <fieldset>
             <!-- <input name="" type="hidden" th:name="*{_csrf.parameterName}" th:value="*{_csrf.token}"> -->
+
             <div class="input error" th:if="${param.error}">
                 로그인 실패: 사용자 ID 또는 비밀번호 오류
             </div>

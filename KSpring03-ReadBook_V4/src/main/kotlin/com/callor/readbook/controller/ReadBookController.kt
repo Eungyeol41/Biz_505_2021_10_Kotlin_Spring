@@ -14,10 +14,16 @@ import org.springframework.web.bind.annotation.RequestMethod
 class ReadBookController {
 
     @Autowired
-    lateinit var readBookService:ReadBookServiceImplV1
+    lateinit var readBookService: ReadBookServiceImplV1
 
     @RequestMapping(value = ["", "/"], method = [RequestMethod.GET])
-    fun home(model:Model):String {
+    fun home(): String {
+        return "redirect:/list"
+    }
+
+
+    @RequestMapping(value = ["/list"], method = [RequestMethod.GET])
+    fun list(model: Model): String {
         var rbList = readBookService.selectAll()
         logger().debug("rbList: {}", rbList)
         model["LIST"] = rbList
@@ -25,21 +31,22 @@ class ReadBookController {
         return "readBook/list"
     }
 
+
     @RequestMapping(value = ["/insert"], method = [RequestMethod.GET])
     fun insert(): String {
-        return "readBook/write.html"
+        return "readBook/write"
     }
 
     @RequestMapping(value = ["/insert"], method = [RequestMethod.POST])
     fun insert(readBook: ReadBookVO): String {
         logger().debug(
-                """>
+            """>
             수신한 데이터
                 {}""", readBook.toString()
         )
 
         readBookService.readBookInsert(readBook)
 
-        return "redirect:/"
+        return "redirect:/list"
     }
 }

@@ -1,9 +1,9 @@
 <html lang="ko" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{/layout}">
 <section layout:fragment="content" class="content">
-    <form class="readbook_write" method="post">
+    <form class="readbook_write" method="post" th:action="@{/insert}">
         <fieldset>
             <legend>독서록 작성</legend>
-            <input name="" type="hidden" th:name="*{_csrf.parameterName}" th:value="*{_csrf.token}">
+            <input name="" type="hidden">
             <div class="input">
                 <input name="isbn" placeholder="ISBN"/>
                 <input name="title" placeholder="도서명"/>

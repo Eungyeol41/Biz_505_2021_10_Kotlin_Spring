@@ -4,16 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+          content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Mypage</title>
 </head>
 <body>
 <section layout:fragment="content" class="content">
-    <h1>MyPage</h1>
-    <p>로그인한 사용자만 볼 수 있음</p>
+    <h2>내 정보 확인하기</h2>
+    <div class="user-detail" th:each="USER: ${USER}">
+        <div class="input"><label>UserId</label><input th:value="${USER.username}"/></div>
+        <div class="input"><label>비밀번호</label><input type="password" th:value="${USER.password}"/></div>
+        <div class="input"><label>주소</label><input th:value="${USER.address}"/></div>
+        <div class="input"><label>전화번호</label><input th:value="${USER.tel}"/></div>
+        <div class="input"><label>주소</label><input th:value="${USER.email}"/></div>
+    </div>
+
     <form method="post" th:action="@{/logout}">
-        <button>Logout</button>
+        <button class="logout">Logout</button>
     </form>
 </section>
 </body>
