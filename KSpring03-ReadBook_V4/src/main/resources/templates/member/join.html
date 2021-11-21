@@ -1,0 +1,42 @@
+<html lang="ko" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{/layout}"
+      xmlns="http://www.w3.org/1999/html">
+<script
+<section layout:fragment="content" class="content">
+    <form method="POST" th:action="@{/join}" class="login_form">
+        <fieldset>
+            <input name="" type="hidden" th:name="*{_csrf.parameterName}" th:value="*{_csrf.token}">
+            <div class="input">
+                <label>ID</label>
+                <input name="username" placeholder="아이디를 입력해주세요">
+            </div>
+            <div class="input">
+                <label>비밀번호</label>
+                <input name="password" placeholder="비밀번호를 입력해주세요" type="password">
+            </div>
+            <div class="input">
+                <label>비밀번호 확인</label>
+                <input name="password" placeholder="비밀번호를 한 번 더 입력해주세요" type="password">
+            </div>
+            <div class="input">
+                <label>전화번호</label>
+                <input name="tel" placeholder="전화번호를 입력해주세요" type="tel">
+            </div>
+            <div class="input">
+                <label>E-mail</label>
+                <input name="email" placeholder="E-mail을 입력해주세요" type="email">
+            </div>
+            <div class="input">
+                <label>도로명주소</label>
+                <!-- <input name="address" placeholder="주소"> -->
+                <input name="address" type="text" id="roadAddrPart1" style="width:85%">
+                <label>상세주소</label>
+                <input name="address" type="text" id="addrDetail" style="width:40%" value="">
+            </div>
+            <div class="input btn_box left">
+                <button class="btn btn_login">회원가입</button>
+                <button class="btn btn_login">로그인하기</button>
+            </div>
+        </fieldset>
+    </form>
+</section>
+</html>

@@ -28,5 +28,15 @@ class MemberController(val member:MemberLoginService) {
         return "member/mypage"
     }
 
+    @RequestMapping(value = ["/join"], method = [RequestMethod.GET])
+    fun join():String {
+        return "member/join"
+    }
+
+    @RequestMapping(value = ["/join"], method = [RequestMethod.POST])
+    fun join(model:Model):String {
+        return "redirect:/member/login"
+    }
+
 }
 

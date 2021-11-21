@@ -10,6 +10,8 @@ $(function (){
             location.href = `${rootPath}insert`
         } else if(className === "login") {
             location.href = `${rootPath}member/login`
+        } else if(className === "join") {
+            location.href = `${rootPath}member/join`
         } else if(className === "mypage") {
             location.href = `${rootPath}member/mypage`
         }
